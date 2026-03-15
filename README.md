@@ -1,5 +1,6 @@
 # tpscii
-The Toki Pona standard code for information exchange
+The Toki Pona standard code for information exchange.   
+(note that this document is correctly formated in raw text mode)
 
 ## Premise
 This document outlines a standard for computer communications using the constructed language [Toki Pona](https://sona.pona.la/wiki/Toki_Pona). It is primarily focused on the transition and display of the *[sitelen pona](https://sona.pona.la/wiki/sitelen_pona)* writing system.
@@ -199,9 +200,239 @@ To switch to a given nimi sin page, you write a 0xff byte, then a two byte unsig
 The decoder will then switch to that page's word space.
 
 ### Page Definitions
-Hex ID | Page Name | 					Page Description			 		|  
-\--------------------------------------------------------   
-0x00   | Default	 | 		The standard page shown above   |   
+Hex ID | Page Name     | 				  	Page Description			 	 |  
+\-------------------------------------------------------------   
+0x00   | Default	     | 		The standard page shown above    |   
+0x01   | Base nimisin	 | 		The list of `obscure` nimisin    |   
+
+### nimi sin page 0x01, Base NS.
+
+
+Obscure words: (0x00 - 0x24)  
+apeja                -> 0x0  
+isipin               -> 0x1  
+jami                 -> 0x2  
+kamalawala           -> 0x3  
+kapesi               -> 0x4  
+kiki                 -> 0x5  
+kokosila             -> 0x6  
+konwe                -> 0x7  
+kulijo               -> 0x8  
+melome               -> 0x9  
+mijomi               -> 0xa  
+misa                 -> 0xb  
+nja                  -> 0xc  
+ojuta                -> 0xd  
+oke                  -> 0xe  
+omekapo              -> 0xf  
+owe                  -> 0x10  
+pake                 -> 0x11  
+penpo                -> 0x12  
+pika                 -> 0x13  
+po                   -> 0x14  
+powe                 -> 0x15  
+puwa                 -> 0x16  
+san                  -> 0x17  
+soto                 -> 0x18  
+sutopatikuna         -> 0x19  
+taki                 -> 0x1a  
+te                   -> 0x1b  
+teje                 -> 0x1c  
+to                   -> 0x1d  
+unu                  -> 0x1e  
+usawi                -> 0x1f  
+wa                   -> 0x20  
+wasoweli             -> 0x21  
+wekama               -> 0x22  
+wuwojiti             -> 0x23  
+yupekosi             -> 0x24  
+
+Sandbox words: (0x25 - 0xda)  
+Pingo                -> 0x25  
+aka                  -> 0x26  
+ako                  -> 0x27  
+aku                  -> 0x28  
+alente               -> 0x29  
+alu                  -> 0x2a  
+an                   -> 0x2b  
+anta                 -> 0x2c  
+antikontitutonelema  -> 0x2d  
+apelo                -> 0x2e  
+api                  -> 0x2f  
+apoko                -> 0x30  
+awase                -> 0x31  
+eki                  -> 0x32  
+eliki                -> 0x33  
+enepi                -> 0x34  
+enko                 -> 0x35  
+epikule              -> 0x36  
+ete                  -> 0x37  
+ewe                  -> 0x38  
+i                    -> 0x39  
+iki                  -> 0x3a  
+ini                  -> 0x3b  
+inisa                -> 0x3c  
+inta                 -> 0x3d  
+ipi                  -> 0x3e  
+iseki                -> 0x3f  
+itomi                -> 0x40  
+iwa                  -> 0x41  
+ja                   -> 0x42  
+jaku                 -> 0x43  
+jalan                -> 0x44  
+jans                 -> 0x45  
+jatu                 -> 0x46  
+je                   -> 0x47  
+jepi                 -> 0x48  
+jipi                 -> 0x49  
+jonke                -> 0x4a  
+josuta               -> 0x4b  
+ju                   -> 0x4c  
+jule                 -> 0x4d  
+jume                 -> 0x4e  
+juna                 -> 0x4f  
+jupi                 -> 0x50  
+ka                   -> 0x51  
+ka1                  -> 0x52  
+ka2                  -> 0x53  
+kajo                 -> 0x54  
+kalamARR             -> 0x55  
+kalapisituji         -> 0x56  
+kalijopilale         -> 0x57  
+kan                  -> 0x58  
+kana                 -> 0x59  
+kankuli              -> 0x5a  
+kapa                 -> 0x5b  
+kasan                -> 0x5c  
+ke                   -> 0x5d  
+kelo                 -> 0x5e  
+kepa                 -> 0x5f  
+kepen                -> 0x60  
+kese                 -> 0x61  
+kewe                 -> 0x62  
+kewi                 -> 0x63  
+ki                   -> 0x64  
+kikolo               -> 0x65  
+kikulo               -> 0x66  
+kisa                 -> 0x67  
+kokoliko             -> 0x68  
+kolin                -> 0x69  
+kolo                 -> 0x6a  
+konsi                -> 0x6b  
+konsuno              -> 0x6c  
+kosan                -> 0x6d  
+kosikosa             -> 0x6e  
+kulaso               -> 0x6f  
+kulu                 -> 0x70  
+kuntu                -> 0x71  
+kutopoma             -> 0x72  
+lajotu               -> 0x73  
+lan                  -> 0x74  
+lapan                -> 0x75  
+lenke                -> 0x76  
+lijokuku             -> 0x77  
+likujo               -> 0x78  
+lipasa               -> 0x79  
+lisa                 -> 0x7a  
+lo                   -> 0x7b  
+loka                 -> 0x7c  
+lokon                -> 0x7d  
+loku                 -> 0x7e  
+lonsi                -> 0x7f  
+lu                   -> 0x80  
+lu1                  -> 0x81  
+masalo               -> 0x82  
+masenta              -> 0x83  
+me                   -> 0x84  
+molusa               -> 0x85  
+mulapisu             -> 0x86  
+nalanja              -> 0x87  
+natu                 -> 0x88  
+ne                   -> 0x89  
+neja                 -> 0x8a  
+nele                 -> 0x8b  
+nowi                 -> 0x8c  
+nu                   -> 0x8d  
+nu1                  -> 0x8e  
+nun                  -> 0x8f  
+nusun                -> 0x90  
+nuwa                 -> 0x91  
+okepuma              -> 0x92  
+oki                  -> 0x93  
+olala                -> 0x94  
+omekalike            -> 0x95  
+omen                 -> 0x96  
+oni                  -> 0x97  
+onono                -> 0x98  
+opasan               -> 0x99  
+pa                   -> 0x9a  
+pakola               -> 0x9b  
+panke                -> 0x9c  
+papa                 -> 0x9d  
+papa1                -> 0x9e  
+papa2                -> 0x9f  
+pasila               -> 0xa0  
+pata                 -> 0xa1  
+patu                 -> 0xa2  
+pela                 -> 0xa3  
+peta                 -> 0xa4  
+peto                 -> 0xa5  
+pipo                 -> 0xa6  
+pipolo               -> 0xa7  
+pokasi               -> 0xa8  
+polinpin             -> 0xa9  
+pomotolo             -> 0xaa  
+poni                 -> 0xab  
+positu               -> 0xac  
+potesu               -> 0xad  
+pulaso               -> 0xae  
+saja                 -> 0xaf  
+salu                 -> 0xb0  
+samu                 -> 0xb1  
+sapelipope           -> 0xb2  
+se                   -> 0xb3  
+se1                  -> 0xb4  
+sikako               -> 0xb5  
+sikomo               -> 0xb6  
+silapa               -> 0xb7  
+sipi                 -> 0xb8  
+sipije               -> 0xb9  
+siwala               -> 0xba  
+slape                -> 0xbb  
+snoweli              -> 0xbc  
+sole                 -> 0xbd  
+su1                  -> 0xbe  
+suke                 -> 0xbf  
+sulaso               -> 0xc0  
+sunta                -> 0xc1  
+suwili               -> 0xc2  
+ta                   -> 0xc3  
+take                 -> 0xc4  
+tankala              -> 0xc5  
+tasun                -> 0xc6  
+teki                 -> 0xc7  
+ten                  -> 0xc8  
+tenkala              -> 0xc9  
+tokana               -> 0xca  
+toma                 -> 0xcb  
+tona                 -> 0xcc  
+towoki               -> 0xcd  
+tuli                 -> 0xce  
+u                    -> 0xcf  
+uka                  -> 0xd0  
+umesu                -> 0xd1  
+waken                -> 0xd2  
+waleja               -> 0xd3  
+wawajete             -> 0xd4  
+we                   -> 0xd5  
+we1                  -> 0xd6  
+wi                   -> 0xd7  
+wisa                 -> 0xd8  
+wiwi                 -> 0xd9  
+yutu                 -> 0xda
+
+0xdb - 0xff reserved.
+
 
 
 
