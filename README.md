@@ -190,20 +190,20 @@ su                   -> 0xee
 0xef - 0xfe reserved.  
   
 Control:  
-nimi sin             -> 0xff  
+nimi sin page switch -> 0xff  
 nimi sin is followed by an unsigned short (2 bytes) of data indicating which page of nimi sin should be selected.  
 This allows for `0xff` * USHRT_MAX (16711425) nimi sin to be represented.
 
 ## nimi sin Pages
-Every nimi sin page is referred to by an ID, e.g. page `0x00`, page `0x01`, and so on. Each page contains `0xff` nimi sin.
+Every nimi sin page is referred to by an ID, e.g. page `0x0000`, page `0x0001`, and so on. Each page contains `0xff` nimi sin.
 To switch to a given nimi sin page, you write a `0xff` byte, then a two byte unsigned short of the desired page's ID.
 The decoder will then switch to that page's word space.
 
 ### Page Definitions
-Hex ID | Page Name     | 				  	Page Description			 	 |  
-\-------------------------------------------------------------   
-0x00   | Default	     | 		The standard page shown above    |   
-0x01   | Base nimisin	 | 		The list of `obscure` nimisin    |   
+Hex ID | Page Name       | 				  	  Page Description			 |  
+\---------------------------------------------------------------   
+0x0000   | Default	     | 		The standard page shown above    |   
+0x0001   | Base nimisin	 | 		The list of `obscure` nimisin    |   
 
 ### nimi sin page 0x01, Base NS.
 
@@ -433,6 +433,13 @@ yutu                 -> 0xda
 
 0xdb - 0xff reserved.
 
+## Example Sequences
+Say we want to write: "mi pona e Pingo kijetesantakalu mi" (I repair my raccon-like car).
+The first part of the sequence is trivial:
+`0x84` (mi), `0xa3` (pona), `0x5e` (e).
+However, we now need to insert `0xff` (nimi sin page switch), `0x00` (ID high byte), `0x01` (ID low byte). This switches us to nimi sin page 1, where Pingo is encoded.
+We can then simply output `0x25` (Pingo). Now, we need to switch back to the normal page. This is the same procedure, but with a different page ID: 
+`0xff` (nimi sin page switch), `0x00` (ID high byte), `0x00` (ID low byte). Now we can continue like normal. `0xd0` (kijetesantakalu), `0x84` (mi).
 
 
 
