@@ -198,7 +198,8 @@ e.g, sending `0xb5` (suwi), `0xfe` (proper noun mode), `0xe6` (epiku), `0xa8` (s
 This is more or less equivalent to a cartouche open / close in normal sitelen pona.
 
 nimi sin page switch -> 0xff  
-nimi sin is followed by an unsigned short (2 bytes) of data indicating which page of nimi sin should be selected.  
+nimi sin page switch switches what word page should be used.
+it is followed by an unsigned short (2 bytes) of data indicating which page of nimi sin should be selected.  
 This allows for `0xff` * USHRT_MAX (16711425) nimi sin to be represented.
 
 ## nimi sin Pages
