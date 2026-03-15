@@ -1,0 +1,207 @@
+# tpscii
+The Toki Pona standard code for information exchange
+
+## Premise
+This document outlines a standard for computer communications using the constructed language [Toki Pona](https://sona.pona.la/wiki/Toki_Pona). It is primarily focused on the transition and display of the *[sitelen pona](https://sona.pona.la/wiki/sitelen_pona)* writing system.
+
+## Description
+sitelen pona is a logographic writing system, so each word comprises one character. This, along with the fact that Toki Pona contains only around 200 "common" words at the most extreme makes it ideal for encoding with a single byte per word. However, problems arise from the *[nimi sin](https://sona.pona.la/wiki/nimi_sin)*, community created words. There are an astronomically large number of mostly unused and forgotten nimi sin that have been created over Toki Pona's 20+ year history, but any protocol would do well to support them. Thus, the naive implementation of each "commonly used" word getting a byte could fail to represent even common texts 5 years from now, if the number of common nimi sin grows significantly. However, is not a particularly likely outcome, so any method of encoding nimi sin should not add significant complexity or require too much transmission time. I have thus decided to use a 1-byte shift and 2-byte selector sequence, which could be easily expanded upon if required.
+
+Core vs. Common vs. Uncommon was determined from [lipu Linku](https://api.linku.la/v1/words), a statistical tool and database for Toki Pona.
+
+## Standard
+The encoding is as follows.  
+
+Standard ASCII control codes and punctuation (0x00 - 0x3f)    
+
+NUL                   -> 0x00   
+SOH                   -> 0x01           
+STX                   -> 0x02
+...   
+\=                    -> 0x3d    
+\>                    -> 0x3e     
+\?                    -> 0x3f    
+
+Latin Symbols (0x40 - 0x50)  
+@                    -> 0x40  
+\[                   -> 0x41  
+\]                   -> 0x42  
+\\                   -> 0x43  
+\-                   -> 0x44  
+\`                   -> 0x45  
+\{                   -> 0x46  
+\|                   -> 0x47  
+\}                   -> 0x48  
+~                    -> 0x49  
+DEL                  -> 0x50  
+
+Core words: (0x51 - 0xc5)  
+a                    -> 0x51  
+akesi                -> 0x52  
+ala                  -> 0x53  
+alasa                -> 0x54  
+ale                  -> 0x55  
+anpa                 -> 0x56  
+ante                 -> 0x57  
+anu                  -> 0x58  
+awen                 -> 0x59  
+e                    -> 0x5a  
+en                   -> 0x5b  
+esun                 -> 0x5c  
+ijo                  -> 0x5d  
+ike                  -> 0x5e  
+ilo                  -> 0x5f  
+insa                 -> 0x60  
+jaki                 -> 0x61  
+jan                  -> 0x62  
+jelo                 -> 0x63  
+jo                   -> 0x64  
+kala                 -> 0x65  
+kalama               -> 0x66  
+kama                 -> 0x67  
+kasi                 -> 0x68  
+ken                  -> 0x69  
+kepeken              -> 0x6a  
+kili                 -> 0x6b  
+kiwen                -> 0x6c  
+ko                   -> 0x6d  
+kon                  -> 0x6e  
+kule                 -> 0x6f  
+kulupu               -> 0x70  
+kute                 -> 0x71  
+la                   -> 0x72  
+lape                 -> 0x73  
+laso                 -> 0x74  
+lawa                 -> 0x75  
+len                  -> 0x76  
+lete                 -> 0x77  
+li                   -> 0x78  
+lili                 -> 0x79  
+linja                -> 0x7a  
+lipu                 -> 0x7b  
+loje                 -> 0x7c  
+lon                  -> 0x7d  
+luka                 -> 0x7e  
+lukin                -> 0x7f  
+lupa                 -> 0x80  
+ma                   -> 0x81  
+mama                 -> 0x82  
+mani                 -> 0x83  
+mi                   -> 0x84  
+moku                 -> 0x85  
+moli                 -> 0x86  
+monsi                -> 0x87  
+mu                   -> 0x88  
+mun                  -> 0x89  
+musi                 -> 0x8a  
+mute                 -> 0x8b  
+nanpa                -> 0x8c  
+nasa                 -> 0x8d  
+nasin                -> 0x8e  
+nena                 -> 0x8f  
+ni                   -> 0x90  
+nimi                 -> 0x91  
+noka                 -> 0x92  
+o                    -> 0x93  
+olin                 -> 0x94  
+ona                  -> 0x95  
+open                 -> 0x96  
+pakala               -> 0x97  
+pali                 -> 0x98  
+palisa               -> 0x99  
+pan                  -> 0x9a  
+pana                 -> 0x9b  
+pi                   -> 0x9c  
+pilin                -> 0x9d  
+pimeja               -> 0x9e  
+pini                 -> 0x9f  
+pipi                 -> 0xa0  
+poka                 -> 0xa1  
+poki                 -> 0xa2  
+pona                 -> 0xa3  
+pu                   -> 0xa4  
+sama                 -> 0xa5  
+seli                 -> 0xa6  
+selo                 -> 0xa7  
+seme                 -> 0xa8  
+sewi                 -> 0xa9  
+sijelo               -> 0xaa  
+sike                 -> 0xab  
+sin                  -> 0xac  
+sina                 -> 0xad  
+sinpin               -> 0xae  
+sitelen              -> 0xaf  
+sona                 -> 0xb0  
+soweli               -> 0xb1  
+suli                 -> 0xb2  
+suno                 -> 0xb3  
+supa                 -> 0xb4  
+suwi                 -> 0xb5  
+tan                  -> 0xb6  
+taso                 -> 0xb7  
+tawa                 -> 0xb8  
+telo                 -> 0xb9  
+tenpo                -> 0xba  
+toki                 -> 0xbb  
+tomo                 -> 0xbc  
+tu                   -> 0xbd  
+unpa                 -> 0xbe  
+uta                  -> 0xbf  
+utala                -> 0xc0  
+walo                 -> 0xc1  
+wan                  -> 0xc2  
+waso                 -> 0xc3  
+wawa                 -> 0xc4  
+weka                 -> 0xc5  
+wile                 -> 0xc6  
+  
+0xc7 - 0xcf reserved.
+  
+Common words: (0xd0 - 0xdc)  
+kijetesantakalu      -> 0xd0  
+kin                  -> 0xd1  
+kipisi               -> 0xd2  
+ku                   -> 0xd3  
+leko                 -> 0xd4  
+meli                 -> 0xd5  
+mije                 -> 0xd6  
+misikeke             -> 0xd7  
+monsuta              -> 0xd8  
+n                    -> 0xd9  
+namako               -> 0xda  
+soko                 -> 0xdb  
+tonsi                -> 0xdc  
+  
+0xdd - 0xe4 reserved.  
+  
+Uncommon words: (0xe5 - 0xee)  
+ali                  -> 0xe5  
+epiku                -> 0xe6  
+jasima               -> 0xe7  
+lanpan               -> 0xe8  
+linluwi              -> 0xe9  
+majuna               -> 0xea  
+meso                 -> 0xeb  
+nimisin              -> 0xec  
+oko                  -> 0xed  
+su                   -> 0xee  
+  
+0xef - 0xfe reserved.  
+  
+Control:  
+nimi sin             -> 0xff  
+nimi sin is followed by an unsigned short (2 bytes) of data indicating which page of nimi sin should be selected.  
+This allows for 0xff * USHRT_MAX (16711425) nimi sin to be represented.
+
+## nimi sin Pages
+Every nimi sin page is referred to by an ID, e.g. page `0x00`, page `0x01`, and so on. Each page contains `0xff` nimi sin.
+To switch to a given nimi sin page, you write a 0xff byte, then a two byte unsigned short of the desired page's ID.
+The decoder will then switch to that page's word space.
+
+### Page Definitions
+Hex ID | Page Name | 					Page Description			 		|  
+---------------------------------------------------------   
+0x00   | Default	 | 		The standard page shown above   |   
+
+
+
