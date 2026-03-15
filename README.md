@@ -17,7 +17,7 @@ Standard ASCII control codes and punctuation (0x00 - 0x3f)
 
 NUL                   -> 0x00   
 SOH                   -> 0x01           
-STX                   -> 0x02
+STX                   -> 0x02  
 ...   
 \=                    -> 0x3d    
 \>                    -> 0x3e     
