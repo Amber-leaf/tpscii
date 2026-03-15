@@ -213,8 +213,7 @@ Hex ID | Page Name       | 				  	  Page Description			 |
 0x0000   | Default	     | 		The standard page shown above    |   
 0x0001   | Base nimisin	 | 		The list of `obscure` nimisin    |   
 
-### nimi sin page 0x01, Base NS.
-
+### nimi sin page 0x01, Base nimisin.
 
 Obscure words: (0x00 - 0x24)  
 apeja                -> 0x0  
