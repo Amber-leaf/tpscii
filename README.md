@@ -200,7 +200,7 @@ The decoder will then switch to that page's word space.
 
 ### Page Definitions
 Hex ID | Page Name | 					Page Description			 		|  
----------------------------------------------------------   
+\--------------------------------------------------------   
 0x00   | Default	 | 		The standard page shown above   |   
 
 
