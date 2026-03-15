@@ -192,11 +192,11 @@ su                   -> 0xee
 Control:  
 nimi sin             -> 0xff  
 nimi sin is followed by an unsigned short (2 bytes) of data indicating which page of nimi sin should be selected.  
-This allows for 0xff * USHRT_MAX (16711425) nimi sin to be represented.
+This allows for `0xff` * USHRT_MAX (16711425) nimi sin to be represented.
 
 ## nimi sin Pages
 Every nimi sin page is referred to by an ID, e.g. page `0x00`, page `0x01`, and so on. Each page contains `0xff` nimi sin.
-To switch to a given nimi sin page, you write a 0xff byte, then a two byte unsigned short of the desired page's ID.
+To switch to a given nimi sin page, you write a `0xff` byte, then a two byte unsigned short of the desired page's ID.
 The decoder will then switch to that page's word space.
 
 ### Page Definitions
