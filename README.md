@@ -192,10 +192,10 @@ su                   -> 0xee
 0xef - 0xfd reserved.  
   
 Control:  
-Proper noun toggle   -> 0xfe
-This control code toggles "proper noun mode", in which each sent word is treated as a phoneme in a name. 
-e.g, sending `0xb5` (suwi), `0xfe` (proper noun mode), `0xe6` (epiku), `0xa8` (seme), `0x60` (insa), `0xfe` (proper noun mode dissable) would be the text equivalent of "suwi Esi".
-This is more or less equivalent to a cartouche open / close in normal sitelen pona.
+Proper noun toggle   -> 0xfe  
+This control code toggles "proper noun mode", in which each sent word is treated as a phoneme in a name.   
+e.g, sending `0xb5` (suwi), `0xfe` (proper noun mode), `0xe6` (epiku), `0xa8` (seme), `0x60` (insa), `0xfe` (proper noun mode dissable) would be the text equivalent of "suwi Esi".  
+This is more or less equivalent to a cartouche open / close in normal sitelen pona.  
 
 nimi sin page switch -> 0xff  
 nimi sin page switch switches what word page should be used.
