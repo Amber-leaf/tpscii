@@ -1,5 +1,5 @@
 # tpscii
-The Toki Pona standard code for information exchange.   
+The Toki Pona standard code for information interchange.   
 (note that this document is correctly formated in raw text mode)
 
 ## Premise
