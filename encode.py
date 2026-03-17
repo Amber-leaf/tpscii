@@ -1,11 +1,13 @@
 import json
 import sys
 
+
 def get_key_from_value(dictionary, value):
     for key, val in dictionary.items():
         if val == value:
             return key
     return None
+
 
 def parse_tokens(text):
     output = []
@@ -39,6 +41,7 @@ def parse_tokens(text):
         output.append(word_buffer)
 
     return output
+
 
 def main():
     if len(sys.argv) > 1:
@@ -80,7 +83,9 @@ def main():
             except KeyError:
                 pass
         if not encoding:
-            print(f"Warning: no such word '{word}'. If this is a nimisin, you might be using an outdated version of this program. We will encode '' instead.")
+            print(
+                f"Warning: no such word '{word}'. If this is a nimisin, you might be using an outdated version of this program. We will encode '' instead."
+            )
 
     print(f"TPSCII encoding for:\n'{text}':\n{out}")
 
