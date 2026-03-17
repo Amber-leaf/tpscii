@@ -46,7 +46,7 @@ def main():
 
         match byte:
             case 0xFF:  # page sequence
-                print("page sequence")
+                #print("page sequence")
                 current_page = int(
                     byte_input[i + 1].strip().lower()
                     + byte_input[i + 2].strip().lower(),
@@ -57,8 +57,12 @@ def main():
             case 0xFE:  # proper noun sequence
                 sequence_accumulator = ""
                 i += 1
-                next_byte = byte_input[i].strip().lower()
-                print(f"next byte: {next_byte}")
+                try:
+                    next_byte = byte_input[i].strip().lower()
+                    # print(f"next byte: {next_byte}")
+                    # print(f"sequence accumulator: {sequence_accumulator}")
+                except IndexError:
+                    exit(f"Bad PNT sequence at {i}!")
                 while next_byte != "fe":
                     if int(next_byte, 16) > 0x3F:
                         sequence_accumulator += lookup_encoding(
@@ -67,31 +71,30 @@ def main():
                     i += 1
                     try:
                         next_byte = byte_input[i].strip().lower()
-                        print(f"next byte: {next_byte}")
-                        print(f"sequence accumulator: {sequence_accumulator}")
+                        #print(f"next byte: {next_byte}")
+                        #print(f"sequence accumulator: {sequence_accumulator}")
                     except IndexError:
-                        print("Bad PNT sequence!")
-                        exit(1)
+                        exit(f"Bad PNT sequence at {i}!")
 
                 out += sequence_accumulator.title()
-                print("done")
+                #print("done")
                 i += 1
                 continue
             case _:  # default
                 if byte <= 0x3F and current_page == 0:
-                    print(f"ascii: {binascii.unhexlify(byte_input[i].strip().lower()).decode(
-                        "utf-8"
-                    )}")
+                    #print(f"ascii: {binascii.unhexlify(byte_input[i].strip().lower()).decode(
+                     #   "utf-8"
+                    #)}")
                     out += binascii.unhexlify(byte_input[i].strip().lower()).decode(
                         "utf-8"
                     )
                     i += 1
                     continue
                 else:
-                    print(f"normal: {lookup_encoding(
-                        encoding_json["page" + str(current_page)],
-                        "0x" + byte_input[i].strip().lower(),
-                    )}")
+                    #print(f"normal: {lookup_encoding(
+                    #    encoding_json["page" + str(current_page)],
+                    #    "0x" + byte_input[i].strip().lower(),
+                    #)}")
                     out += lookup_encoding(
                         encoding_json["page" + str(current_page)],
                         "0x" + byte_input[i].strip().lower(),
