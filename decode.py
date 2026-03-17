@@ -18,7 +18,7 @@ def main():
     else:
         # Read from stdin
         print(
-            "Paste text to decode, then press Ctrl+D (Unix) or Ctrl+Z (Windows) when done:"
+            "Paste bytes to decode, then press Ctrl+D (Unix) or Ctrl+Z (Windows) when done:"
         )
         byte_input = sys.stdin.read()
 
@@ -29,8 +29,6 @@ def main():
     pages = []
     current_page = 0
 
-    sequence_accumulator = ""
-    i = 0
 
     byte_input = [
         byte_input[i : i + 2] for i in range(0, len(byte_input), 2)
@@ -40,6 +38,8 @@ def main():
 
     for page in encoding_json:
         pages.append(page)
+
+    i = 0
 
     while i < len(byte_input):
         byte = int(byte_input[i].strip().lower(), 16)
