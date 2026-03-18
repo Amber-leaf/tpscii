@@ -1,13 +1,11 @@
 import json
 import sys
 
-
 def get_key_from_value(dictionary, value):
     for key, val in dictionary.items():
         if val == value:
             return key
     return None
-
 
 def parse_tokens(text):
     output = []
@@ -27,6 +25,7 @@ def parse_tokens(text):
                 word_buffer = ""
                 output.append("space")
                 continue
+
             case c if not c.isalpha():
                 if word_buffer:
                     output.append(word_buffer)
@@ -88,7 +87,6 @@ def main():
             )
 
     print(f"TPSCII encoding for:\n'{text}':\n{out}")
-
 
 if __name__ == "__main__":
     main()

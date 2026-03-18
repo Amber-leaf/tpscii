@@ -2,13 +2,11 @@ import binascii
 import json
 import sys
 
-
 def lookup_encoding(dictionary, value):
     for key, val in dictionary.items():
         if val == value:
             return key
     return None
-
 
 def main():
     if len(sys.argv) > 1:
@@ -103,7 +101,6 @@ def main():
                     continue
 
     print(f"TPSCII decoding for '0x{"".join(byte_input)}':\n{out}")
-
 
 if __name__ == "__main__":
     main()
